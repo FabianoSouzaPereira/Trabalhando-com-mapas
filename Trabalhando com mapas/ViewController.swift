@@ -23,9 +23,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         gerenciadorLocal.startUpdatingLocation()
         
         
-       /* let latitude: CLLocationDegrees = -23.586974
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let localizacaoUsuario: CLLocation = locations.last!
+        
+        //monta exibicao do mapa
+        let latitude: CLLocationDegrees = localizacaoUsuario.coordinate.latitude
 
-        let longitude: CLLocationDegrees = -46.657355
+        let longitude: CLLocationDegrees = localizacaoUsuario.coordinate.longitude
 
         let deltaLatitude: CLLocationDegrees = 0.01
 
@@ -39,25 +45,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
 
         let regiao: MKCoordinateRegion = MKCoordinateRegion.init(center: localizacao, span: areaVisualizacao)
-
         map.setRegion(regiao, animated: true)
-        
-        let anotacao = MKPointAnnotation()
-
-
-
-        //Configurar
-
-        anotacao.coordinate = localizacao
-
-        anotacao.title = "Parque Ibirapuera"
-
-        anotacao.subtitle = "Parque localizado na cidade de São Paulo"
-
-
-
-        map.addAnnotation(anotacao) */
-        
         
     }
 
